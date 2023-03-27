@@ -13,11 +13,7 @@ double silnia_r1(unsigned n) // funkcja z rekurencja
 }
 double silnia_r2(unsigned n)
 {
-    unsigned long i, iloczyn;
-
-    for (i = iloczyn = 1; i <= n; ++i)
-        iloczyn *= i;
-    return iloczyn;
+    return (n > 1) ? n*silnia_r2(n-1) : 1; // jesli n>1 to zwracamy n razy wynik funkcji dla n-1
 }
 int main()
 {
@@ -25,7 +21,7 @@ int main()
     printf("Obliczanie n! metoda iteracyjna\n");
     printf("Podaj liczbe naturalna n: ");
     scanf("%u",&n);
-    printf("%u! = %f\n",n,silnia_r1(n)); // wywolanie wszystkich trzech funkcji i wyswietlenie ich wynikow
+    printf("%u! = %f\n",n,silnia_r1(n)); // wywolanie obu funkcji i wyswietlenie ich wynikow
     printf("%u! = %f\n",n,silnia_r2(n));
 
     printf("Max unsigned = %u\n",UINT_MAX); // wypisanie wartosci UINT.MAX - maksymalna wartosc dla typu unsigned
