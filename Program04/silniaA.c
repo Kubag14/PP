@@ -9,10 +9,10 @@ unsigned silnia_i1(unsigned n) // unsigned - 16 bitow
     unsigned i,iloczyn;
 
     for (i = iloczyn = 1; i <= n; ++i) // petla bedzie sie powtarzac do i=n, za kazdym razem ustalajac i = i + 1
-        iloczyn *= i;
+        iloczyn *= i; // iloczyn = iloczyn*i
     return iloczyn;
 }
-unsigned long silnia_i2(unsigned n) // unsigned long ma 32 bity
+unsigned long silnia_i2(unsigned n) // dla unsigned long
 {
     unsigned long i, iloczyn;
 
@@ -20,7 +20,7 @@ unsigned long silnia_i2(unsigned n) // unsigned long ma 32 bity
         iloczyn *= i;
     return iloczyn;
 }
-double silnia_i3(unsigned n) // double - zazwyczaj 64 bity
+double silnia_i3(unsigned n) // dla double
 {
     double i,iloczyn;
 
@@ -36,7 +36,7 @@ int main()
     scanf("%u",&n);
     printf("%u! = %u\n",n,silnia_i1(n)); // wywolanie wszystkich trzech funkcji i wyswietlenie ich wynikow
     printf("%u! = %lu\n",n,silnia_i2(n));
-    printf("%u! = %f\n",n,silnia_i3(n));
+    printf("%u! = %lg\n",n,silnia_i3(n));
 
     printf("Max unsigned = %u\n",UINT_MAX); // wypisanie wartosci UINT.MAX - maksymalna wartosc dla typu unsigned
     printf("Max unsigned long = %lu\n",ULONG_MAX); // wypisanie wartosci ULONG.MAX - maksymalna wartosc dla typu unsigned long
