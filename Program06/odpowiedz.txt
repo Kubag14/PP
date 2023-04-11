@@ -1,0 +1,25 @@
+Z klawiatury i na ekran:
+
+Wielki Zderzacz Hadronów LHC (Large Hadron Collider)
+Wielki ze względu na wymiary akceleratora (długość obwodu około 27 km).
+Zderzacz, bo cząstki z dwóch przeciwbieżnych wiązek zderzają się w czterech miejscach, w których tory tych wiązek się przecinają.
+Hadronów, bo przyspieszane są protony lub jony, które są hadronami (cząstkami, które zbudowane są z kwarków i oddziałują silnie).
+
+Cyfry:
+        0: 0
+        1: 0
+        2: 1
+        3: 0
+        4: 0
+        5: 0
+        6: 0
+        7: 1
+        8: 0
+        9: 0
+Biale znaki: 58
+Inne znaki: 353
+
+Z pliku wejscie.txt, do wyjscieA.txt
+polecenie: ./a.out < wejscie.txt > wyjscieA.txt
+
+Dane wejściowe w pliku wejscie.txt, wyjściowe w pliku wyjscieA.txt

@@ -6,43 +6,54 @@
 #define NC 10
 int main()
 {
-    int c, zz, zw,
-    i,
+    int c, i,
     biale = 0,
     inne = 0,
     cyfry[NC] = {0};
-    printf("Zliczanie cyfr, bialych znakow i pozostalych znakow w tekscie: \n");
+    const char in[] = "wejscie.txt";
+    const char out[] = "wyjscieB.txt";
+    printf("Zliczanie cyfr, bialych znakow i pozostalych znakow w tekscie. \n");
+    printf("Plik wejsciowy: wejscie.txt; plik wyjsciowy: wyjscieB.txt \n");
 
-    const char zrodlo[] = "txt.txt";
-    const char cel[] = "out.txt";
-    FILE *wz, *wc; // wskazniki do plikow zrodla i celu
+    FILE *wi, *wo; // wskazniki do plikow zrodla i celu, wi = in, wo = out
+    wi = fopen(in,"r"); // otwarcie pliku in do czytania
+    wo = fopen(out,"w"); // otwarcie pliku out do pisania
 
-    if ( (wz = fopen(zrodlo,"r")) == NULL) {
-        printf("Blad otwarcia pliku %s\n", zrodlo);
+    if ((wi) == NULL) {
+        printf("Blad otwarcia pliku %s\n", in);
         exit(1);
     }
-    if ( ( wc = fopen(cel,"w")) == NULL) {
-        printf("Blad otwarcia pliku %s\n", cel);
+    if ((wo) == NULL) {
+        printf("Blad otwarcia pliku %s\n", out);
         exit(2);
     }
-    while ((c = fgetc(wz)) != EOF) // czytanie do pliku wz
-        if (fputc(c,wc) == EOF) {
-            printf("Blad pisania w pliku %s\n", cel);
+    while ((c = fgetc(wi)) != EOF) // czytanie z pliku in
+        if (fputc(c,wo) == EOF) { // pisanie do pliku out
+            printf("Blad pisania w pliku %s\n", out);
             exit(3);
         }
+
     // Jawne zamkniecie plikow - z obsluga bledow
-    if (fclose(wz) == EOF) { // zamkniecie pliku wz
-        printf("Blad zamykania pliku %s\n", zrodlo);
+    if (fclose(wi) == EOF) { // zamkniecie pliku in
+        printf("Blad zamykania pliku %s\n", in);
         exit(4);
     }
-    if (fclose(wc) == EOF) { // zamkniecie pliku wc
-        printf("Blad zamykania pliku %s\n", cel);
+    if (fclose(wo) == EOF) { // zamkniecie pliku out
+        printf("Blad zamykania pliku %s\n", out);
         exit(5);
     }
 
+/* na tym etapie dane z pliku wejsciowego sa przekopiowane do pliku wyjsciowego */
 
+    FILE *wor;
+    wor = fopen(out,"a+"); // ponowne otwarcie pliku wyjsciowego, czytanie i pisanie na koncu
 
-    while ( (c = getchar()) != EOF ) // wczytanie znaku
+    if ((wor) == NULL) {
+        printf("Blad otwarcia pliku %s\n", out);
+        exit(6);
+    }
+
+    while ((c = fgetc(wor)) != EOF ) // wczytanie znaku
         switch (c) { // rozpoznanie znaku
             case '0':
             case '1':
@@ -67,8 +78,13 @@ int main()
                 inne++; // zliczanie innych znakow
                 break;
         } // switch
-        printf("Cyfry:\n");
-        for (i = 0; i < NC; ++i)
-            printf("\t%c: %d\n", '0'+i, cyfry[i]);
-        printf("Biale znaki: %d\nInne znaki: %d\n",biale,inne);
+    fprintf(wo,"\nCyfry:\n");
+    for (i = 0; i < NC; ++i)
+        fprintf(wo,"\t%c: %d\n", '0'+i, cyfry[i]);
+    fprintf(wo,"Biale znaki: %d\nInne znaki: %d\n",biale,inne); // wypisanie wynikow na koncu pliku
+
+    if (fclose(wor) == EOF) { // ponowne zamkniecie pliku out
+        printf("Blad zamykania pliku %s\n", in);
+        exit(7);
+    }
 }
