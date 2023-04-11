@@ -1,0 +1,14 @@
+Zliczanie cyfr, bialych znakow i pozostalych znakow w tekscie: 
+Cyfry:
+	0: 13
+	1: 15
+	2: 6
+	3: 4
+	4: 3
+	5: 4
+	6: 4
+	7: 3
+	8: 6
+	9: 17
+Biale znaki: 262
+Inne znaki: 1573
