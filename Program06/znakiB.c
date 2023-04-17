@@ -3,13 +3,13 @@
 
 /* Program zlicza w tekscie: cyfry (kazda oddzielnie), biale znaki oraz pozostale znaki. */
 
-#define NC 10
+#define NC 10 // definiujemy rozmiar tablicy - jest 9 cyfr
 int main()
 {
     int c, i,
     biale = 0,
     inne = 0,
-    cyfry[NC] = {0};
+    cyfry[NC] = {0}; // tablica na cyfry
     const char in[] = "wejscie.txt";
     const char out[] = "wyjscieB.txt";
     printf("Zliczanie cyfr, bialych znakow i pozostalych znakow w tekscie. \n");
