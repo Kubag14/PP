@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int wypiszTekst(FILE *wp, char tekst[]);
+int wypiszTekst(char tekst[]);
 
 int czytajTekst(FILE *wp, char tekst[],int max);
 
