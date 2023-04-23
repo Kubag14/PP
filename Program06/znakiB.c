@@ -87,4 +87,5 @@ int main()
         printf("Blad zamykania pliku %s\n", in);
         exit(7);
     }
+    printf("Zakonczono pomyslnie \n");
 }
