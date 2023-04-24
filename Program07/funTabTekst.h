@@ -1,16 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int wypiszTekst(char tekst[]);
+void wypiszTekst(char tekst[]);
 
-int czytajTekst(FILE *wp, char tekst[],int max);
+void wypiszTekstP(FILE *wo, char tekst[]);
 
-int kopiujTekst(char skad[], char dokad[], int max);
+void czytajTekst(FILE *wi, char tekst[],int max);
 
-int wszystkieZnaki(char tekst[]);
+void kopiujTekst(char skad[],char dokad[],int max);
 
-int czarneZnaki(char tekst[]);
+void wszystkieZnaki(char tekst[]);
 
-int linie(char tekst[]);
+void czarneZnaki(char tekst[]);
 
-int slowa(char tekst[]);
+void linie(char tekst[]);
+
+void slowa(char tekst[]);
+
+void wszystkieZnakiP(FILE *wo, char tekst[]);
+
+void czarneZnakiP(FILE *wo, char tekst[]);
+
+void linieP(FILE *wo, char tekst[]);
+
+void slowaP(FILE *wo, char tekst[]);

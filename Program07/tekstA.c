@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "funTabTekst.h"
 
-int main(int argc, char *argv[])
+int main()
 {
     char tekst[] = "Wielki Zderzacz Hadronów LHC (Large Hadron Collider)\n"
                    "Wielki ze względu na wymiary akceleratora (długość obwodu około 27 km).\n"
