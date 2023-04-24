@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "funTabTekst.h"
 
 #define MAX 5001 // maksymalna ilosc znakow

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void wypiszTekst(char tekst[]) {
+void wypiszTekst(char tekst[]) { // wypisywanie tekstu z tablicy na ekran
     int i = 0;
     while (tekst[i] != '\0') {
         putchar(tekst[i]);
@@ -9,7 +9,7 @@ void wypiszTekst(char tekst[]) {
     }
 }
 
-void wypiszTekstP(FILE *wo, char tekst[]) {
+void wypiszTekstP(FILE *wo, char tekst[]) { // wypisywanie tekstu z tablicy do pliku
     int c, i = 0;
     while ((c = tekst[i]) != '\0') {
         if (fputc(c, wo) == EOF) { // pisanie do pliku out
@@ -18,16 +18,15 @@ void wypiszTekstP(FILE *wo, char tekst[]) {
         } else
             i++;
     }
-    fprintf(wo, "\n");
+    fprintf(wo, "\n"); // pisanie do pliku
 }
 
-void czytajTekst(FILE *wi, char tekst[], int max) {
+void czytajTekst(FILE *wi, char tekst[], int max) { // czytanie tekstu z pliku do tablicy
     char c;
     int i = 0;
     if (i <= (max - 1)) {
         while ((c = fgetc(wi)) != EOF) { // czytanie z pliku in
-            tekst[i] = c;
-            i++;
+            tekst[i++] = c;
         }
     } else {
         printf("Wprowadzono zbyt dlugi tekst, maksymalna dlugosc tekstu: %i znakow", max - 1);
@@ -36,17 +35,24 @@ void czytajTekst(FILE *wi, char tekst[], int max) {
     tekst[i + 1] = '\0';
 }
 
-void kopiujTekst(char skad[],char dokad[],int max) {
+void kopiujTekst(char tekst[],char tekstKop[],int max) { // kopiowanie zawartosci jednej tablicy do drugiej
     char c;
     int i = 0;
-
+    while ((c = tekst[i]) != '\0') {
+            if (i <= max) {
+                tekstKop[i++] = c;
+            }
+            else {
+                printf("Skopiowano czesc tekstu. Liczba skopiowanych znakow: %i", i+1); // i+1 bo \0 sie nie kopiuje
+                return;
+            }
+        }
+    printf("\n\nSkopiowano tekst. Liczba skopiowanych znakow: %i\n\n", i+1); // i+1 bo \0 sie nie kopiuje
 }
-
 
 void wszystkieZnaki(char tekst[]) {
     int i = 0;
-    while (tekst[i] != '\0') // zliczanie wszystkich znakow - de facto dlugosci tablicy
-        i++;
+    while (tekst[i++] != '\0'); // zliczanie wszystkich znakow - de facto dlugosci tablicy
     printf("\n\nLiczba wszystkich znakow: %i\n", i);
 }
 
@@ -85,9 +91,7 @@ void slowa(char tekst[]) {
 
     int i = 1, slowa = 0;
     while (tekst[i] != '\0') {
-        if ((tekst[i] == ' ' || tekst[i] == '\n' || tekst[i] == '\t') && (tekst[i - 1] != ' ' && tekst[i - 1] != '\n' &&
-                                                                          tekst[i - 1] !=
-                                                                          '\t')) { // jesli aktualny znak jest bialy i poprzedni jest czarny, to +1 do slow
+        if ((tekst[i] == ' ' || tekst[i] == '\n' || tekst[i] == '\t') && (tekst[i - 1] != ' ' && tekst[i - 1] != '\n' && tekst[i - 1] != '\t')) { // jesli aktualny znak jest bialy i poprzedni jest czarny, to +1 do slow
             slowa++;
             i++; // wskaznik znaku
         } else
@@ -102,8 +106,7 @@ void slowa(char tekst[]) {
 
 void wszystkieZnakiP(FILE *wo, char tekst[]) {
     int i = 0;
-    while (tekst[i] != '\0') // zliczanie wszystkich znakow - de facto dlugosci tablicy
-        i++;
+    while (tekst[i++] != '\0'); // zliczanie wszystkich znakow - de facto dlugosci tablicy
     fprintf(wo,"\n\nLiczba wszystkich znakow: %i\n", i);
 }
 
