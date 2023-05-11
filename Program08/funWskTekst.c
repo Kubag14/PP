@@ -18,7 +18,8 @@ void czytajTekst(FILE *wi, char *tekst, int max) { // czytanie tekstu z pliku do
     int i = 0;
     if (i <= (max - 1)) {
         while ((c = fgetc(wi)) != EOF) { // czytanie z pliku in
-            *(tekst+i++) = c;
+            *(tekst+i) = c;
+            i++;
         }
     } else {
         printf("Wprowadzono zbyt dlugi tekst, maksymalna dlugosc tekstu: %i znakow", max - 1);
