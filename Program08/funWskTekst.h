@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void wypiszTekstP(FILE *wo, char *tekst);
+void wypiszTekstP(FILE *wo, const char *restrict tekst);
 
-void czytajTekst(FILE *wi, char *tekst,int max);
+void czytajTekstP(FILE *wi, char *restrict tekst,int max);
 
-void wszystkieZnakiP(FILE *wo, char *tekst);
+void wszystkieZnakiP(FILE *wo, const char *restrict tekst);
 
-void czarneZnakiP(FILE *wo, char *tekst);
+void czarneZnakiP(FILE *wo, const char *restrict tekst);
 
-void linieP(FILE *wo, char *tekst);
+void linieP(FILE *wo, const char *restrict tekst);
 
-void slowaP(FILE *wo, char *tekst);
+void slowaP(FILE *wo, const char *restrict tekst);

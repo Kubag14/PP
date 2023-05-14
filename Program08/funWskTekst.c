@@ -1,55 +1,49 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "funWskTekst.h"
 
-void wypiszTekstP(FILE *wo, char *tekst) { // wypisywanie tekstu z tablicy do pliku
-    int c, i = 0;
-    while ((c = *(tekst+i)) != '\0') {
-        if (fputc(c, wo) == EOF) { // pisanie do pliku out
-            printf("Blad pisania w pliku wyjsciowym\n");
-            exit(3);
-        } else
-            i++;
+void wypiszTekstP(FILE *wo, const char *restrict tekst) { // wypisywanie tekstu z tablicy do pliku
+    if (fprintf(wo,"\033[0;33m%s\033[0m",tekst) < 0) { //wypisanie calosci tablicy do pliku
+        printf("\033[0;31mBlad pisania w pliku wyjsciowym!\033[0m\n"); // jesli mniejsze <0 to blad, bo fprintf przy bledzie wyrzuca wartosc ujemna
+        exit(3);
     }
     fprintf(wo, "\n"); // pisanie do pliku
 }
 
-void czytajTekst(FILE *wi, char *tekst, int max) { // czytanie tekstu z pliku do tablicy
+void czytajTekstP(FILE *wi, char *restrict tekst,int max) { // czytanie tekstu z pliku do tablicy
     char c;
     int i = 0;
-    if (i <= (max - 1)) {
-        while ((c = fgetc(wi)) != EOF) { // czytanie z pliku in
-            *(tekst+i) = c;
-            i++;
+    while ((c = fgetc(wi)) != EOF) { // czytanie z pliku in
+        *(tekst + i) = c;
+        i++;
+        if (i >= max - 1) { // jesli i >= max -1 to blad z powodu zbyt dlugiego tekstu
+            printf("\033[0;31mWprowadzono zbyt dlugi tekst, maksymalna dlugosc tekstu: %i znakow.\033[0m\n", max - 1);
+            exit(4);
         }
-    } else {
-        printf("Wprowadzono zbyt dlugi tekst, maksymalna dlugosc tekstu: %i znakow", max - 1);
-        exit(4);
     }
     *(tekst + i + 1) = '\0';
 }
 
-void wszystkieZnakiP(FILE *wo, char *tekst) {
+void wszystkieZnakiP(FILE *wo, const char *restrict tekst) {
     int i = 0;
     while (*(tekst+i++) != '\0'); // zliczanie wszystkich znakow - de facto dlugosci tablicy
-    fprintf(wo,"\n\nLiczba wszystkich znakow: %i\n", i);
+    fprintf(wo,"\n\n\033[0;35mLiczba wszystkich znakow: %i\033[0m\n", i);
 }
 
-void czarneZnakiP(FILE *wo, char *tekst) {
+void czarneZnakiP(FILE *wo, const char *restrict tekst) {
     int i = 0, o, czarne = 0;
-    while ((o = *(tekst+i)) != '\0')
+    while ((o = *(tekst+i)) != '\0') // \0 konczy string
         switch (o) {
             case ' ':
             case '\n':
             case '\t':
                 i++; // pozycja tablicy
-            default:
+            default: // czarny znak to kazdy inny oprocz powyzszych
                 czarne++;
                 i++; // pozycja tablicy
         }
-    fprintf(wo,"Liczba czarnych znakow: %i\n", czarne); // wypisanie liczby czarnych znakow
+    fprintf(wo,"\033[0;35mLiczba czarnych znakow: %i\033[0m\n", czarne); // wypisanie liczby czarnych znakow
 }
 
-void linieP(FILE *wo, char *tekst) {
+void linieP(FILE *wo, const char *restrict tekst) {
 
     int i = 0, o, linie = 0;
     while ((o = *(tekst+i)) != '\0') // zliczanie wszystkich znakow - de facto dlugosci tablicy
@@ -62,10 +56,10 @@ void linieP(FILE *wo, char *tekst) {
         }
     if (*(tekst+i-1) != '\n') // jesli przedostatni znak to nie \n to +1 do liczby linii
         linie++;
-    fprintf(wo,"Liczba linii: %i\n", linie); // wypisanie liczby linii
+    fprintf(wo,"\033[0;35mLiczba linii: %i\033[0m\n", linie); // wypisanie liczby linii
 }
 
-void slowaP(FILE *wo, char *tekst) {
+void slowaP(FILE *wo, const char *restrict tekst) {
 
     int i = 1, slowa = 0;
     while (*(tekst+i) != '\0') {
@@ -79,5 +73,5 @@ void slowaP(FILE *wo, char *tekst) {
             *(tekst+i-1) != '\t') // jesli przedostatni znak jest czarny to +1 do liczby slow
         slowa++;
 
-    fprintf(wo,"Liczba slow: %i\n", slowa); // wypisanie liczby linii
+    fprintf(wo,"\033[0;35mLiczba slow: %i\033[0m\n", slowa); // wypisanie liczby linii
 }

@@ -14,11 +14,11 @@ int main(int argc, char *argv[])
     wi = fopen(argv[1], "r");
     wo = fopen(argv[2], "w");
 
-    czytajTekst(wi, tekst, MAX);
+    czytajTekstP(wi, tekst, MAX);
     wypiszTekstP(wo, tekst);
     wszystkieZnakiP(wo, tekst);
     czarneZnakiP(wo, tekst);
     linieP(wo, tekst);
     slowaP(wo, tekst);
-    printf("Pomyslnie przekopiowano i wykonano analize tekstu.\n");
+    printf("\033[1;34mPomyslnie przekopiowano i wykonano analize tekstu.\033[0m\n");
 }
