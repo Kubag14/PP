@@ -10,7 +10,7 @@ int wypiszMacierz(FILE *wp, char *nazwa, int n, double M[n][n]); // pisze macier
 
 int czytajWektor(FILE *wp, char *nazwa, int n, double V[n]); // czyta wektor oraz nazwe z pliku, zwraca 1 lub 0
 
-int wypiszsWektor(FILE **wp, char *nazwa, int n, double V[n]); // pisze wektor oraz nazwe do pliku, zwraca 1 lub 0
+int wypiszWektor(FILE *wp, char *nazwa, int n, double V[n]); // pisze wektor oraz nazwe do pliku, zwraca 1 lub 0
 
 int czytajLiczbe(FILE *wp, char *nazwa, double *c); // czyta nazwe i liczbe z pliku, zwraca 1 lub 0
 

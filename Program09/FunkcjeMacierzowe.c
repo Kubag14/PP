@@ -1,16 +1,33 @@
 #include "FunkcjeMacierzowe.h"
 
-int czytajMacierz(FILE *wp, char *nazwa, int n, double M[n][n]); // czyta macierz oraz nazwe z pliku, zwraca 1 lub 0
+int czytajMacierz(FILE *in, char *nazwa, int n, double M[n][n]) { // czyta macierz oraz nazwe z pliku, zwraca 1 lub 0
+    int k, w;
+    fscanf(in, "%s", &nazwa);
+    for (k = 0; k < n; k++)
+        for (w = 0; w < n; w++)
+        fscanf(in, "%f", &M[k][w]);
 
-int wypiszMacierz(FILE *wp, char *nazwa, int n, double M[n][n]); // pisze macierz oraz nazwe do pliku, zwraca 1 lub 0
+    return 1;
+}
+int wypiszMacierz(FILE *out, char *nazwa, int n, double M[n][n]) { // pisze macierz oraz nazwe do pliku, zwraca 1 lub 0
+    int k, w;
+    fprintf(out, "%s", nazwa);
+    for (k = 0; k < n; k++) {
+        for (w = 0; w < n; w++) {
+            fprintf(out, "%f", &M[k][w]);
+            fputs(" ", out);
+        }
+        fprintf(out, "\n");
+    }
+    return 1;
+}
+int czytajWektor(FILE *in, char *nazwa, int n, double V[n]); // czyta wektor oraz nazwe z pliku, zwraca 1 lub 0
 
-int czytajWektor(FILE *wp, char *nazwa, int n, double V[n]); // czyta wektor oraz nazwe z pliku, zwraca 1 lub 0
+int wypiszWektor(FILE *in, char *nazwa, int n, double V[n]); // pisze wektor oraz nazwe do pliku, zwraca 1 lub 0
 
-int wypiszsWektor(FILE **wp, char *nazwa, int n, double V[n]); // pisze wektor oraz nazwe do pliku, zwraca 1 lub 0
+int czytajLiczbe(FILE *in, char *nazwa, double *c); // czyta nazwe i liczbe z pliku, zwraca 1 lub 0
 
-int czytajLiczbe(FILE *wp, char *nazwa, double *c); // czyta nazwe i liczbe z pliku, zwraca 1 lub 0
-
-int wypiszLiczbe(FILE *wp, char *nazwa, double *c); // pisze nazwe i liczbe do pliku, zwraca 1 lub 0
+int wypiszLiczbe(FILE *in, char *nazwa, double *c); // pisze nazwe i liczbe do pliku, zwraca 1 lub 0
 
 void transponujMacierz(int n, double M[n][n], double MT[n][n]); // oblicza macierz transponowana
 
