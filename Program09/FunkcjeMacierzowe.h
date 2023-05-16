@@ -12,9 +12,9 @@ int czytajWektor(FILE *wp, char *nazwa, int n, double V[n]); // czyta wektor ora
 
 int wypiszWektor(FILE *wp, char *nazwa, int n, double V[n]); // pisze wektor oraz nazwe do pliku, zwraca 1 lub 0
 
-int czytajLiczbe(FILE *wp, char *nazwa, double *c); // czyta nazwe i liczbe z pliku, zwraca 1 lub 0
+int czytajLiczbe(FILE *wp, char *nazwa, double c); // czyta nazwe i liczbe z pliku, zwraca 1 lub 0
 
-int wypiszLiczbe(FILE *wp, char *nazwa, double *c); // pisze nazwe i liczbe do pliku, zwraca 1 lub 0
+int wypiszLiczbe(FILE *wp, char *nazwa, double c); // pisze nazwe i liczbe do pliku, zwraca 1 lub 0
 
 void transponujMacierz(int n, double M[n][n], double MT[n][n]); // oblicza macierz transponowana
 
