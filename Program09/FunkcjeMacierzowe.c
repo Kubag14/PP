@@ -18,6 +18,7 @@ int wypiszMacierz(FILE *out, char *nazwa, int n, double M[n][n]) { // pisze maci
         }
         fprintf(out, "\n");
     }
+    fprintf(out, "\n");
     return 1;
 }
 int czytajWektor(FILE *in, char *nazwa, int n, double V[n]) { // czyta wektor oraz nazwe z pliku, zwraca 1 lub 0
@@ -37,18 +38,28 @@ int wypiszWektor(FILE *out, char *nazwa, int n, double V[n]) { // pisze wektor o
     fprintf(out, "\n");
     return 1;
 }
-int czytajLiczbe(FILE *in, char *nazwa, double c) {  // czyta nazwe i liczbe z pliku, zwraca 1 lub 0
+
+int czytajLiczbe(FILE *in, char *nazwa, double* c) {  // czyta nazwe i liczbe z pliku, zwraca 1 lub 0
     fscanf(in, "%s", nazwa);
-    fscanf(in, "%lf", &c);
+    fscanf(in, "%lf", c);
     return 1;
 }
 
 int wypiszLiczbe(FILE *out, char *nazwa, double c) { // pisze nazwe i liczbe do pliku, zwraca 1 lub 0
     fprintf(out, "%s\n", nazwa);
-    fprintf(out, "%g\n", c);
+    fprintf(out, "%g\n\n", c);
     return 1;
 }
-void transponujMacierz(int n, double M[n][n], double MT[n][n]); // oblicza macierz transponowana
+void transponujMacierz(int n, double M[n][n], double MT[n][n]) {  // oblicza macierz transponowana
+    int k,w;
+    for (k = 0; k < n; k++) {
+        for (w = 0; w < n; w++) {
+            MT[k][w] = M[w][k];
+        }
+    }
+
+
+}
 
 void dodajMacierze(int n, double A[n][n], double B[n][n], double C[n][n]); // oblicza sume macierzy C = A + B
 

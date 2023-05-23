@@ -1,30 +1,5 @@
-Wielki Zderzacz Hadronów LHC (Large Hadron Collider)
-Wielki ze względu na wymiary akceleratora (długość obwodu około 27 km).
-Zderzacz, bo cząstki z dwóch przeciwbieżnych wiązek zderzają się w czterech miejscach, w których tory tych wiązek się przecinają.
-Hadronów, bo przyspieszane są protony lub jony, które są hadronami (cząstkami, które zbudowane są z kwarków i oddziałują silnie).
-
-Wokół czterech miejsc zderzeń wiązek w ogromnych podziemnych halach zbudowano cztery detektory dla dużych eksperymentów ATLAS, CMS, LHCb i ALICE. Dodatkowo przy dwóch pierwszych detektorach znajdują się detektory dwóch małych eksperymentów LHCf i TOTEM, które będą analizować cząstki rozproszone lub produkowane pod małymi kątami. W planowanym siódmym małym eksperymencie MoEDAL (przy detektorze LHCb) będą poszukiwane powolne i/lub silnie jonizujace stabilne cząstki egzotyczne jak np. masywne cząstki supersymetryczne lub monopole magnetyczne.
-
-Polskie instytuty naukowe biorą udział w eksperymentach ATLAS, CMS, LHCb i ALICE.
-
-
-©CERN
-
-Niektóre dane
-Długość obwodu tunelu akceleratora	26 659 m
-Średnia głebokość tunelu akceleratora	100 m
-Energia protonów w wiązce	7 TeV
-Energia jonów w wiązce	2,76 TeV/nukleon
-Prędkość protonów w wiązce 	0,999999991 c
-Liczba protonów w wiązce	2808 paczek x 1011
-Liczba obiegów protonu w akceleratorze na sekundę 	11 245
-Liczba zderzeń cząstek 	600 mln/s
-Liczba rejestrowanych zderzeń	100/s
-Czas życia wiązki 	10 h
-Liczba elektromagnesów akceleratora	9 593
-Indukcja pola magnetycznego w elektromagnesach dipolowych	8,3 T
-Temperatura obwodów nadprzewodzących w tych elektromagnesach	1,9 K
-Ciśnienie w rurze wiązki 	10-13atm
-Koszt akceleratora	4,98 mld CHF
-Koszt detektorów i gridu (w CERN-ie)	1,53 mld CHF
-Decyzja o budowie 1994, rozpoczęcie budowy 1998, uruchomienie 2008
+C is a general-purpose computer programming language. It was created in the 1970s by Dennis Ritchie,
+and remains very widely used and influential. By design, C's features cleanly reflect the capabilities of the
+targeted CPUs. It has found lasting use in operating systems, device drivers, protocol stacks, though
+decreasingly for application software, and is common in computer architectures that range from the largest
+supercomputers to the smallest microcontrollers and embedded systems.

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
-project(ppC C)
+project(ppC LANGUAGES C CXX)
 
-set(CMAKE_C_STANDARD 11)
+# set(CMAKE_C_STANDARD 11)
 
 #add_executable(ppC
 #        "Program 1 (hw)/Program01/Program01/Program01.c"
@@ -25,3 +25,5 @@ set(CMAKE_C_STANDARD 11)
 #        "Program 2 (temp)/Program02/Temperatura2E.c"
 #        "Program 2 (temp)/Program02/Temperatura2F.c")
 add_executable(P04 "Program04/silnia.c")
+add_executable(P09 "Program09/macierze.c")
+target_link_libraries(P09 "C:/Users/kubag/Desktop/ppC/Program09/FunkcjeMacierzowe.h")

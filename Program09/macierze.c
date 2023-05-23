@@ -33,10 +33,10 @@ int main(int argc, char *argv[]) {
 
     assert(czytajMacierz(in, nazwaA, n, A));
     assert(czytajMacierz(in, nazwaB, n, B));
+    assert(czytajLiczbe(in, nazwaL, &c));
+    assert(czytajWektor(in, nazwaV, n, V));
     assert(wypiszMacierz(out, nazwaA, n, A));
     assert(wypiszMacierz(out, nazwaB, n, B));
-    assert(czytajLiczbe(in, nazwaL, c));
     assert(wypiszLiczbe(out, nazwaL, c));
-    assert(czytajWektor(in, nazwaV, n, V));
     assert(wypiszWektor(out, nazwaV, n, V));
 }
