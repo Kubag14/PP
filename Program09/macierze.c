@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
         printf("%s plik-wejsciowy plik-wyjsciowy rozmiar-macierzy\n", argv[0]);
         exit(1);
     }
-    else if ((n = atoi(argv[3])) < 1 || n > 10) {
+    else if ((n = atoi(argv[3])) < 1 || n > 10) { // atoi konwertuje char na int (pobieranie wartosci n z argumentu wywolania programu)
         printf("Niewlasciwy rozmiar macierzy! Podaj rozmiar w granicy 1-10\n");
         printf("Poprawne wywolanie programu:\n");
         printf("%s plik-wejsciowy plik-wyjsciowy rozmiar-macierzy\n", argv[0]);
