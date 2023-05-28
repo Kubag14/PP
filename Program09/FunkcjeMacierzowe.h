@@ -16,16 +16,16 @@ int czytajLiczbe(FILE *in, char *nazwa, double* c); // czyta nazwe i liczbe z pl
 
 int wypiszLiczbe(FILE *out, char *nazwa, double c); // pisze nazwe i liczbe do pliku, zwraca 1 lub 0
 
-void transponujMacierz(int n, double M[n][n], double MT[n][n]); // oblicza macierz transponowana
+void transponujMacierz(char const *nazwaM, char *nazwaMT, int n, double M[n][n], double MT[n][n]); // oblicza macierz transponowana
 
-void dodajMacierze(int n, double A[n][n], double B[n][n], double C[n][n]); // oblicza sume macierzy C = A + B
+void dodajMacierze(char const *nazwaA, char const *nazwaB, char *nazwaC, int n, double A[n][n], double B[n][n], double C[n][n]); // oblicza sume macierzy C = A + B
 
-void odejmijMacierze(int n, double A[n][n], double B[n][n], double C[n][n]); // oblicza roznice macierzy C = A - B
+void odejmijMacierze(char const *nazwaA, char const *nazwaB, char *nazwaC, int n, double A[n][n], double B[n][n], double C[n][n]); // oblicza roznice macierzy C = A - B
 
-void mnozLiczbaMacierz(int n, double c, double A[n][n], double B[n][n]); // oblicza B = c*A
+void mnozLiczbaMacierz(char const *nazwaA, char const *nazwaL, char *nazwaC, int n, double c, double M[n][n], double Mc[n][n]); // oblicza B = c*A
 
-void mnozMacierzWektor(int n, double A[n][n], double V[n], double W[n]); // oblicza W = A * V
+void mnozMacierzWektor(char const *nazwaA, char const *nazwaV, char *nazwaC, int n, double A[n][n], double V[n], double W[n]); // oblicza W = A * V
 
-void mnozMacierze(int n, double A[n][n], double B[n][n], double C[n][n]); // oblicza C = A*B
+void mnozMacierze(char const *nazwaA, char const *nazwaB, char *nazwaC, int n, double A[n][n], double B[n][n], double C[n][n]); // oblicza C = A*B
 
 #endif
