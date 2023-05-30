@@ -1,5 +1,5 @@
 TypZespolone.o: TypZespolone.c
-	gcc -Wall -std=c99 -pedantic -c TypZespolone.c -lm
+	gcc -Wall -pedantic -c TypZespolone.c -lm
 
 zespolone.o: zespolone.c
 	gcc -Wall -std=c99 -pedantic -c zespolone.c -lm
